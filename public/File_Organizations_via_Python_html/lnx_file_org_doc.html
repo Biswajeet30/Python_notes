@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Operations via Python Codes in  Linux / Unix  Operating Systems</title>
+    <link rel="stylesheet" href="./file_org_docs_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>File Operations in Linux / Unix Operating Systems</h1> <br> <br>
+    <b><h2>OS Module</h2></b>
+
+    <p>
+        The <b class="bold">os </b>module in Python provides a way of interacting with the operating system. 
+        It abstracts many operating system-dependent functionalities into a simple and 
+        consistent interface, making it easier to write cross-platform code. 
+        Here's a detailed analysis of the functionalities and utilities provided by the  <b class="bold">os </b> module:
+    </p>
+    <h3>Utilities &amp; Functionalities :</h3>
+    <ol>
+        <li>File and Directory Operations:
+            <ul class="bold">
+                <li>os.open(file, flags[, mode]):<p> Opens a file and returns a file descriptor.</p></li>
+                <li>os.chdir(path):<p> Changes the current working directory to the specified path.</p></li>
+                <li>os.listdir(path='.'):<p> Returns a list of files and directories in the given directory.</p></li>
+            </ul>
+        </li>
+        <li>Path Manipulation:
+            <ul class="bold">
+                <li>os.path.join(path, *paths):<p> Joins one or more path components intelligently.</p></li>
+                <li>os.path.abspath(path):<p> Returns the absolute version of a path.</p></li>
+                <li>os.path.exists(path): <p>Returns True if the path exists, False otherwise.</p></li>
+                <li>os.path.isdir(path): <p>Returns True if the path is a directory, False otherwise.</p></li>
+                <li>os.path.isfile(path):<p> Returns True if the path is a regular file, False otherwise.</p></li>
+            </ul>
+        </li>
+        <li>File and Directory Manipulation:
+            <ul class="bold">
+                <li>os.mkdir(path): <p>Creates a directory at the specified path.</p></li>
+                <li>os.makedirs(path): <p>Creates a directory and any necessary parent directories.</p></li>
+                <li>os.remove(path): <p>Removes a file at the specified path.</p></li>
+                <li>os.rmdir(path): <p>Removes an empty directory at the specified path.</p></li>
+                <li>os.removedirs(path): <p>Removes empty directories recursively.</p></li>
+                <li>os.rename(src, dst): <p>Renames a file or directory from src to dst.</p></li>
+            </ul>
+        </li>
+        <li>Environment Variables:
+            <ul class="bold">
+                <li>os.environ: <p>A dictionary containing the environment variables.</p></li>
+                <li>os.getenv(key, default=None): <p>Returns the value of the environment variable with the specified key.</p></li>
+            </ul>
+        </li>
+        <li>Process and System Information:
+            <ul class="bold">
+                <li>os.system(command):<p> Executes the command in a subshell.</p></li>
+                <li>os.getpid():<p> Returns the current process ID.</p></li>
+                <li>os.getppid():<p> Returns the parent process ID.</p></li>
+                <li>os.cpu_count():<p> Returns the number of CPUs in the system.</p></li>
+            </ul>
+        </li>
+        <li>Working with Paths:
+            <ul class="bold">
+                <li>os.path.split(path): <p>Splits a path into a directory and a file.</p></li>
+                <li>os.path.splitext(path): <p>Splits a path into the root and extension.</p></li>
+                <li>os.path.basename(path): <p>Returns the base name of a path.</p></li>
+                <li>os.path.dirname(path): <p>Returns the directory name of a path.</p></li>
+            </ul>
+        </li>
+        <li>Permissions and Ownership:
+            <ul class="bold">
+                <li>os.chmod(path, mode): <p>Changes the permissions of a file.</p></li>
+                <li>os.chown(path, uid, gid): <p>Changes the owner and group ID of a file.</p></li>
+            </ul>
+        </li>
+        <li>File and Directory Statistics:
+            <ul class="bold">
+                <li>os.stat(path): <p>Returns information about a file.</p></li>
+                <li>os.path.getsize(path): <p>Returns the size of a file in bytes.</p></li>
+                <li>os.path.getctime(path): <p>Returns the creation time of a file.</p></li>
+            </ul>
+        </li>
+        <li>Constants:
+            <ul class="bold">
+                <li>os.sep: <p>The separator used in paths ('/' on Unix, '\' on Windows).</p></li>
+                <li>os.pathsep: <p>The character used to separate different paths in the PATH variable.</p></li>
+                <li>os.linesep: <p>The line separator used in text files ('\n' on Unix, '\r\n' on Windows).</p></li>
+            </ul>
+        </li>
+        <li>File Descriptor Operations:
+            <ul class="bold">
+                <li>os.open(file, flags[, mode]): <p>Opens a file and returns a file descriptor.</p></li>
+                <li>os.close(fd): <p>Closes a file descriptor.</p></li>
+            </ul>
+        </li>
+        <li>File and Directory Permissions:
+            <ul class="bold">
+                <li>os.access(path, mode): <p>Checks if the specified path is accessible with the given mode (e.g., os.F_OK, os.R_OK).</p></li>
+            </ul>
+        </li>
+        <li>File System Encoding:
+            <ul class="bold">
+                <li>os.fsencode(filename): <p>Converts the filename to the file system encoding.</p></li>
+                <li>os.fsdecode(filename): <p>Decodes the filename from the file system encoding.</p></li>
+            </ul>
+        </li>
+        <li>Creating Temporary Files and Directories:
+            <ul class="bold">
+                <li>os.mkstemp(suffix='', prefix='', dir=None, text=False): <p>Creates a temporary file and returns its file descriptor.</p></li>
+                <li>os.makedirs(path, mode=0o777, exist_ok=False): <p>Creates a temporary directory.</p></li>
+            </ul>
+        </li>
+        <li>Working with File Times:
+            <ul class="bold">
+                <li>os.utime(path, times=None, *, ns=None, follow_symlinks=True): <p>Set the access and modified times of a file.</p></li>
+            </ul>
+        </li>
+        <li>Terminal Size:
+            <ul class="bold">
+                <li>os.get_terminal_size(fallback=(columns, lines)): <p>Returns the size of the terminal window.</p></li>
+            </ul>
+        </li>
+        <li>Creating Symbolic Links:
+            <ul class="bold">
+                <li>os.symlink(target, link_name): <p>Creates a symbolic link pointing to target named link_name.</p></li>
+            </ul>
+        </li>
+        <li>Change Working Directory and Environment in a Subprocess:
+            <ul class="bold">
+                <li>os.chdir(path): <p>Changes the current working directory.</p></li>
+                <li>os.putenv(key, value): <p>Sets the value of the environment variable key to the string value.</p></li>
+            </ul>
+        </li>
+        <li>File and Directory Iterator:
+            <ul class="bold">
+                <li>os.scandir(path='.'): <p>Returns an iterator of DirEntry objects representing entries in the given directory.</p></li>
+            </ul>
+        </li>
+        <li>Miscellaneous:
+            <ul class="bold">
+                <li>os.name: <p>The name of the operating system dependent module imported.</p></li>
+                <li>os.walk(top, topdown=True, onerror=None, followlinks=False): <p>Generates file names in a directory tree.</p></li>
+            </ul>
+        </li>
+        <li>Miscellaneous Constants:
+            <ul class="bold">
+                <li>os.devnull: <p>The file path of the null device (e.g., '/dev/null' on Unix, 'nul' on Windows).</p></li>
+            </ul>
+        </li>
+    </ol>
+    <p>
+        Using these functionalities, the os module provides a powerful and versatile set of 
+        tools for interacting with the file system, 
+        managing processes, and obtaining information about the system environment.
+    </p>
+    <p>
+        These additional points cover more specialized or advanced use cases of the os module. 
+        Keep in mind that the os module is extensive, and the provided 
+        functionalities cater to a wide range of operating system-related tasks in Python.
+    </p>
+    <h3>Are these same in case of both Windows and Linux operating systems?</h3>
+    <p>
+        The os module in Python is designed to be cross-platform, meaning that many of its functionalities 
+        are consistent across different operating systems, including Windows and Linux. However, there are 
+        certain aspects where the behavior may differ due to inherent differences in the operating systems. 
+        Here's a brief overview of how these functionalities behave on both Windows and Linux:
+    </p>
+            <ol><li>File and Directory Separators:
+                <ul class="bold">
+                    <li><p>Windows uses backslashes (\) as path separators (e.g.,</p> 'C:\\Users\\Username\\file.txt').</li>
+                    <li><p>Linux uses forward slashes (/) as path separators (e.g.,</p> '/home/username/file.txt').</li>
+                </ul>
+                os.path.join() <p>The function is used to construct paths in a way that is appropriate for the operating system.</p>
+            </li>
+            <li>Current Working Directory:
+                <ul class="bold">
+                    <li>os.getcwd(): <p>Returns the current working directory in the respective path format.</p></li>
+                </ul>
+            </li>
+            
+            <li>Environment Variables:
+                <ul class="bold">
+                    <li><p>Accessing environment variables using os.environ is consistent, but the actual variables may differ. For example, the home directory variable is  <b class="bold"> %USERPROFILE% </b> on Windows and  <b class="bold"> $HOME </b> on Linux.</p></li>
+                </ul>
+            </li>
+            
+            <li>File and Directory Operations:
+                <ul class="bold">
+                    <li><p>Functions like <b class="bold"> os.listdir()</b><b class="bold"> , os.mkdir()</b>, and<b class="bold">  os.remove()</b> are consistent across platforms for basic file and directory operations.</p></li>
+                </ul>
+            </li>
+            <li>Permissions and Ownership:
+                <ul class="bold">
+                    <li><p>Functions like <b class="bold">os.chmod() </b>and <b class="bold">os.chown() </b>may behave differently or have limited functionality on Windows compared to Linux.</p></li>
+                </ul>
+            </li>
+            <li>Process and System Information:
+                <ul class="bold">
+                    <li><p>Functions like <b class="bold">os.system(), os.getpid(), and os.cpu_count() </b>behave consistently across platforms.</p></li>
+                </ul>
+            </li>
+            <li>Path Manipulation:
+                <ul class="bold">
+                    <li>os.path.join() <p>and related functions handle path manipulation in a platform-independent way.</p></li>
+                </ul>
+            </li>
+            <li>Symbolic Links:
+                <ul class="bold">
+                    <li>Handling of symbolic links (e.g., os.symlink())<p> may differ between Windows and Linux due to differences in how each system manages symbolic links.</p></li>
+                </ul>
+            </li>
+            <li>Terminal Size:
+                <ul class="bold">
+                    <li>os.get_terminal_size() <p>may behave differently or not be available on certain platforms.</p></li>
+                </ul>
+            </li>
+            <li>File and Directory Iterator:
+                <ul class="bold">
+                    <li>os.scandir() <p>provides a platform-independent way to iterate over directory entries.</p></li>
+                </ul>
+            </li>
+            <p>
+                While the os module provides a consistent interface, it's important to 
+                be aware of platform-specific nuances, especially when dealing with 
+                file paths, permissions, and certain system-related functionalities. 
+                For more specialized tasks, it might be 
+                necessary to use platform-specific modules or libraries.
+            </p>
+        </ol>
+        <h2>File Descriptor Operations and File and Directory Permissions in the os Module </h2>
+        <ol>File Descriptor Operations: <br> os.open(file, flags[, mode]):
+            <li>
+                Opens / Closes a file and returns a file descriptor. <br>
+                        <ul> 
+                            <!-- works on both WIndows OS and Linux -->
+                            <li> Opening files <b class="bold"># os.open(file, flags[, mode]): <br> <br></b>
+                                <b>Example 1 :</b> <b class="unbold">Checking Readability </b><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<b>Code</b> <br>
+                                <b class="code">
+                                    import os <br> <br>
+                                    file_path = "E:\chrom_links.txt" <br><br>
+                                    # Check if the file is readable <br><br>
+                                    if os.access(file_path, os.R_OK): <br> <br>
+                                &nbsp;&nbsp;        with open(file_path, 'r', encoding='utf-8', errors='ignore') as file: <br> <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;            content = file.read() <br> <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;            print(content) <br> <br>
+                                    else: <br> <br>
+                                &nbsp;&nbsp;        print("File is not readable.") <br> <br>
+                                </b>
+                                <img src="../../assets/Python_file_org_ops/os_mod_img1.png" alt="os_mod_img1">
+                                <img src="../../assets/Python_file_org_ops/os_mod_img2.png" alt="os_mod_img2">
+                            </li>
+                            <li>
+                                File closing <b class="bold"> os.close(fd) </b><br>
+                                    <b>Example 2 :</b> <b class="unbold">Closes a file descriptor.</b><br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<b>Code</b> <br>
+                                    <b class="code">
+                                        import os <br> <br>
+                                        # Open a file and get a file descriptor <br> <br>
+                                        fd = os.open("E:\chrom_links.txt", os.O_RDONLY) <br> <br>
+                                        # Do some operations with the file descriptor <br> <br>
+                                        print(fd) <br> <br>
+                                        # Close the file descriptor <br> <br>
+                                        os.close(fd) <br> <br>
+                                    </b>
+                                    <img src="../../assets/Python_file_org_ops/os_mod_img3.png" alt="os_mod_img3">
+                            </li>
+                            <h5 class="bold">Notes : <br>
+                                Parameters: <br>
+                                <ol class="bold">
+                                    <li>file (str)</li>
+                                            <p>The path to the file that you want to open.</p>
+                                    <li>flag (int)
+                                        <ul>
+                                            <li>
+                                                <b class="unbold"> A combination of flags that control the behavior of the file descriptor. 
+                                                    Flags are expressed as bitwise OR (|) of the constants 
+                                                    defined in the </b>  os  <b class="unbold"> module.</b>
+                                            </li>
+                                            <li>os.O_RDONLY: Open for reading only.</li>
+                                            <li>os.O_WRONLY: Open for writing only.</li>
+                                            <li>os.O_RDWR: Open for both reading and writing.</li>
+                                            <li>os.O_APPEND: Set the file pointer to the end of the file before each write.</li>
+                                            <li>os.O_CREAT: Create the file if it does not exist.</li>
+                                            <li>os.O_EXCL: Ensure that this call creates the file exclusively (fails if the file already exists).</li>
+                                            <li>os.O_TRUNC: Truncate the file to zero length if it exists.</li>
+                                        </ul>
+                                    </li>
+                                    <li>mode(int,optional)
+                                        <ul>
+                                            <li>The permissions to set if the file is created (used in conjunction with the os.O_CREAT flag).</li>
+                                            <li>The mode parameter is an octal value representing the permissions (e.g., 0o777).</li>
+                                            <li>This parameter is typically not used on Windows.</li>
+                                        </ul>
+                                    </li>
+                                    <p>
+                                        <b class="bold">Other Possible attributes :<br></b>
+                                        <ul>
+                                            <li>os.O_BINARY and os.O_TEXT (Windows-specific):
+                                                    <li>On Windows, you can use these flags to control how the file is opened with respect to line endings.</li>
+                                                    <li>os.O_BINARY: Open the file in binary mode.</li>
+                                                    <li>os.O_TEXT: Open the file in text mode.</li>
+                                            </li>
+                                            <li>File Descriptor (fd):
+                                                <li>The returned file descriptor is an integer that represents the opened file. This descriptor is used in subsequent file-related operations.</li>
+                                            </li>
+                                        </ul>
+                                    </p> <img src="../../assets/Python_file_org_ops/os_mod_img4.png" alt="os_mod_img4">
+                                </ol>
+
+                            </h5>
+                        <!-- works on both WIndows OS and Linux -->
+</body>
+</html>

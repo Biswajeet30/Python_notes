@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Operations via Python Codes in Windows Operating Systems</title>
+    <link rel="stylesheet" href="./file_org_docs_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>File Operations in Windows Operating Systems</h1> <br> <br>
+    <h2>OS Module</h2>
+
+    <p>
+        The <b class="bold">os </b>module in Python provides a way of interacting with the operating system. 
+        It abstracts many operating system-dependent functionalities into a simple and 
+        consistent interface, making it easier to write cross-platform code. 
+        Here's a detailed analysis of the functionalities and utilities provided by the  <b class="bold">os </b> module:
+    </p>
+    <h3>Utilities &amp; Functionalities :</h3>
+    <ol>
+        <li>File and Directory Operations:
+            <ul class="bold">
+                <li>os.open(file, flags[, mode]):<p> Opens a file and returns a file descriptor.</p></li>
+                <li>os.close(fd): <p>Closes a file descriptor.</p></li>
+                <li>os.chdir(path):<p> Changes the current working directory to the specified path.</p></li>
+                <li>os.listdir(path='.'):<p> Returns a list of files and directories in the given directory.</p></li>
+            </ul>
+        </li>
+        <li>Path Manipulation:
+            <ul class="bold">
+                <li>os.path.join(path, *paths):<p> Joins one or more path components intelligently.</p></li>
+                <li>os.path.abspath(path):<p> Returns the absolute version of a path.</p></li>
+                <li>os.path.exists(path): <p>Returns True if the path exists, False otherwise.</p></li>
+                <li>os.path.isdir(path): <p>Returns True if the path is a directory, False otherwise.</p></li>
+                <li>os.path.isfile(path):<p> Returns True if the path is a regular file, False otherwise.</p></li>
+            </ul>
+        </li>
+        <li>File and Directory Manipulation:
+            <ul class="bold">
+                <li>os.mkdir(path): <p>Creates a directory at the specified path.</p></li>
+                <li>os.makedirs(path): <p>Creates a directory and any necessary parent directories.</p></li>
+                <li>os.remove(path): <p>Removes a file at the specified path.</p></li>
+                <li>os.rmdir(path): <p>Removes an empty directory at the specified path.</p></li>
+                <li>os.removedirs(path): <p>Removes empty directories recursively.</p></li>
+                <li>os.rename(src, dst): <p>Renames a file or directory from src to dst.</p></li>
+            </ul>
+        </li>
+        <li>Environment Variables:
+            <ul class="bold">
+                <li>os.environ: <p>A dictionary containing the environment variables.</p></li>
+                <li>os.getenv(key, default=None): <p>Returns the value of the environment variable with the specified key.</p></li>
+            </ul>
+        </li>
+        <li>Process and System Information:
+            <ul class="bold">
+                <li>os.system(command):<p> Executes the command in a subshell.</p></li>
+                <li>os.getpid():<p> Returns the current process ID.</p></li>
+                <li>os.getppid():<p> Returns the parent process ID.</p></li>
+                <li>os.cpu_count():<p> Returns the number of CPUs in the system.</p></li>
+            </ul>
+        </li>
+        <li>Working with Paths:
+            <ul class="bold">
+                <li>os.path.split(path): <p>Splits a path into a directory and a file.</p></li>
+                <li>os.path.splitext(path): <p>Splits a path into the root and extension.</p></li>
+                <li>os.path.basename(path): <p>Returns the base name of a path.</p></li>
+                <li>os.path.dirname(path): <p>Returns the directory name of a path.</p></li>
+            </ul>
+        </li>
+        <li>Permissions and Ownership:
+            <ul class="bold">
+                <li>os.chmod(path, mode): <p>Changes the permissions of a file.</p></li>
+                <li>os.chown(path, uid, gid): <p>Changes the owner and group ID of a file.</p></li>
+            </ul>
+        </li>
+        <li>File and Directory Statistics:
+            <ul class="bold">
+                <li>os.stat(path): <p>Returns information about a file.</p></li>
+                <li>os.path.getsize(path): <p>Returns the size of a file in bytes.</p></li>
+                <li>os.path.getctime(path): <p>Returns the creation time of a file.</p></li>
+            </ul>
+        </li>
+        <li>Constants:
+            <ul class="bold">
+                <li>os.sep: <p>The separator used in paths ('/' on Unix, '\' on Windows).</p></li>
+                <li>os.pathsep: <p>The character used to separate different paths in the PATH variable.</p></li>
+                <li>os.linesep: <p>The line separator used in text files ('\n' on Unix, '\r\n' on Windows).</p></li>
+            </ul>
+        </li>
+        <li>File Descriptor Operations:
+            <ul class="bold">
+                <li>os.open(file, flags[, mode]): <p>Opens a file and returns a file descriptor.</p></li>
+                <li>os.close(fd): <p>Closes a file descriptor.</p></li>
+            </ul>
+        </li>
+        <li>File and Directory Permissions:
+            <ul class="bold">
+                <li>os.access(path, mode): <p>Checks if the specified path is accessible with the given mode (e.g., os.F_OK, os.R_OK).</p></li>
+            </ul>
+        </li>
+        <li>File System Encoding:
+            <ul class="bold">
+                <li>os.fsencode(filename): <p>Converts the filename to the file system encoding.</p></li>
+                <li>os.fsdecode(filename): <p>Decodes the filename from the file system encoding.</p></li>
+            </ul>
+        </li>
+        <li>Creating Temporary Files and Directories:
+            <ul class="bold">
+                <li>os.mkstemp(suffix='', prefix='', dir=None, text=False): <p>Creates a temporary file and returns its file descriptor.</p></li>
+                <li>os.makedirs(path, mode=0o777, exist_ok=False): <p>Creates a temporary directory.</p></li>
+            </ul>
+        </li>
+        <li>Working with File Times:
+            <ul class="bold">
+                <li>os.utime(path, times=None, *, ns=None, follow_symlinks=True): <p>Set the access and modified times of a file.</p></li>
+            </ul>
+        </li>
+        <li>Terminal Size:
+            <ul class="bold">
+                <li>os.get_terminal_size(fallback=(columns, lines)): <p>Returns the size of the terminal window.</p></li>
+            </ul>
+        </li>
+        <li>Creating Symbolic Links:
+            <ul class="bold">
+                <li>os.symlink(target, link_name): <p>Creates a symbolic link pointing to target named link_name.</p></li>
+            </ul>
+        </li>
+        <li>Change Working Directory and Environment in a Subprocess:
+            <ul class="bold">
+                <li>os.chdir(path): <p>Changes the current working directory.</p></li>
+                <li>os.putenv(key, value): <p>Sets the value of the environment variable key to the string value.</p></li>
+            </ul>
+        </li>
+        <li>File and Directory Iterator:
+            <ul class="bold">
+                <li>os.scandir(path='.'): <p>Returns an iterator of DirEntry objects representing entries in the given directory.</p></li>
+            </ul>
+        </li>
+        <li>Miscellaneous:
+            <ul class="bold">
+                <li>os.name: <p>The name of the operating system dependent module imported.</p></li>
+                <li>os.walk(top, topdown=True, onerror=None, followlinks=False): <p>Generates file names in a directory tree.</p></li>
+            </ul>
+        </li>
+        <li>Miscellaneous Constants:
+            <ul class="bold">
+                <li>os.devnull: <p>The file path of the null device (e.g., '/dev/null' on Unix, 'nul' on Windows).</p></li>
+            </ul>
+        </li>
+    </ol>
+    <p>
+        Using these functionalities, the os module provides a powerful and versatile set of 
+        tools for interacting with the file system, 
+        managing processes, and obtaining information about the system environment.
+    </p>
+    <p>
+        These additional points cover more specialized or advanced use cases of the os module. 
+        Keep in mind that the os module is extensive, and the provided 
+        functionalities cater to a wide range of operating system-related tasks in Python.
+    </p>
+    <h3>Are these same in case of both Windows and Linux operating systems?</h3>
+    <p>
+        The os module in Python is designed to be cross-platform, meaning that many of its functionalities 
+        are consistent across different operating systems, including Windows and Linux. However, there are 
+        certain aspects where the behavior may differ due to inherent differences in the operating systems. 
+        Here's a brief overview of how these functionalities behave on both Windows and Linux:
+    </p>
+            <ol><li>File and Directory Separators:
+                <ul class="bold">
+                    <li><p>Windows uses backslashes (\) as path separators (e.g.,</p> 'C:\\Users\\Username\\file.txt').</li>
+                    <li><p>Linux uses forward slashes (/) as path separators (e.g.,</p> '/home/username/file.txt').</li>
+                </ul>
+                os.path.join() <p>The function is used to construct paths in a way that is appropriate for the operating system.</p>
+            </li>
+            <li>Current Working Directory:
+                <ul class="bold">
+                    <li>os.getcwd(): <p>Returns the current working directory in the respective path format.</p></li>
+                </ul>
+            </li>
+            
+            <li>Environment Variables:
+                <ul class="bold">
+                    <li><p>Accessing environment variables using os.environ is consistent, but the actual variables may differ. For example, the home directory variable is  <b class="bold"> %USERPROFILE% </b> on Windows and  <b class="bold"> $HOME </b> on Linux.</p></li>
+                </ul>
+            </li>
+            
+            <li>File and Directory Operations:
+                <ul class="bold">
+                    <li><p>Functions like <b class="bold"> os.listdir()</b><b class="bold"> , os.mkdir()</b>, and<b class="bold">  os.remove()</b> are consistent across platforms for basic file and directory operations.</p></li>
+                </ul>
+            </li>
+            <li>Permissions and Ownership:
+                <ul class="bold">
+                    <li><p>Functions like <b class="bold">os.chmod() </b>and <b class="bold">os.chown() </b>may behave differently or have limited functionality on Windows compared to Linux.</p></li>
+                </ul>
+            </li>
+            <li>Process and System Information:
+                <ul class="bold">
+                    <li><p>Functions like <b class="bold">os.system(), os.getpid(), and os.cpu_count() </b>behave consistently across platforms.</p></li>
+                </ul>
+            </li>
+            <li>Path Manipulation:
+                <ul class="bold">
+                    <li>os.path.join() <p>and related functions handle path manipulation in a platform-independent way.</p></li>
+                </ul>
+            </li>
+            <li>Symbolic Links:
+                <ul class="bold">
+                    <li>Handling of symbolic links (e.g., os.symlink())<p> may differ between Windows and Linux due to differences in how each system manages symbolic links.</p></li>
+                </ul>
+            </li>
+            <li>Terminal Size:
+                <ul class="bold">
+                    <li>os.get_terminal_size() <p>may behave differently or not be available on certain platforms.</p></li>
+                </ul>
+            </li>
+            <li>File and Directory Iterator:
+                <ul class="bold">
+                    <li>os.scandir() <p>provides a platform-independent way to iterate over directory entries.</p></li>
+                </ul>
+            </li>
+            <h2>File Descriptor Operations and File and Directory Permissions in the os Module </h2>
+            <ol>File Descriptor Operations: <br> os.open(file, flags[, mode]):
+                <li>
+                    Opens / Closes a file and returns a file descriptor. <br>
+                            <ul> 
+                                <!-- works on both WIndows OS and Linux -->
+                                <li> Opening files <b class="bold"># os.open(file, flags[, mode]): <br> <br></b>
+                                    <b>Example 1 :</b> <b class="unbold">Checking Readability </b><br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<b>Code</b> <br>
+                                    <b class="code">
+                                        import os <br> <br>
+                                        file_path = "E:\chrom_links.txt" <br><br>
+                                        # Check if the file is readable <br><br>
+                                        if os.access(file_path, os.R_OK): <br> <br>
+                                    &nbsp;&nbsp;        with open(file_path, 'r', encoding='utf-8', errors='ignore') as file: <br> <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;            content = file.read() <br> <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;            print(content) <br> <br>
+                                        else: <br> <br>
+                                    &nbsp;&nbsp;        print("File is not readable.") <br> <br>
+                                    </b>
+                                    <img src="../../assets/Python_file_org_ops/os_mod_img1.png" alt="os_mod_img1">
+                                    <img src="../../assets/Python_file_org_ops/os_mod_img2.png" alt="os_mod_img2">
+                                </li>
+                                <li>
+                                    File closing <b class="bold"> os.close(fd) </b><br>
+                                        <b>Example 2 :</b> <b class="unbold">Closes a file descriptor.</b><br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<b>Code</b> <br>
+                                        <b class="code">
+                                            import os <br> <br>
+                                            # Open a file and get a file descriptor <br> <br>
+                                            fd = os.open("E:\chrom_links.txt", os.O_RDONLY) <br> <br>
+                                            # Do some operations with the file descriptor <br> <br>
+                                            print(fd) <br> <br>
+                                            # Close the file descriptor <br> <br>
+                                            os.close(fd) <br> <br>
+                                        </b>
+                                        <img src="../../assets/Python_file_org_ops/os_mod_img3.png" alt="os_mod_img3">
+                                </li>
+                                <h5 class="bold">Notes : <br>
+                                    Parameters: <br>
+                                    <ol class="bold">
+                                        <li>file (str)</li>
+                                                <p>The path to the file that you want to open.</p>
+                                        <li>flag (int)
+                                            <ul>
+                                                <li>
+                                                    <b class="unbold"> A combination of flags that control the behavior of the file descriptor. 
+                                                        Flags are expressed as bitwise OR (|) of the constants 
+                                                        defined in the </b>  os  <b class="unbold"> module.</b>
+                                                </li>
+                                                <li>'|' (bitwise OR) operator</li>
+                                                <li>os.O_RDONLY: Open for reading only.</li>
+                                                <li>os.O_WRONLY: Open for writing only.</li>
+                                                <li>os.O_RDWR: Open for both reading and writing.</li>
+                                                <li>os.O_APPEND: Set the file pointer to the end of the file before each write.</li>
+                                                <li>os.O_CREAT: Create the file if it does not exist.</li>
+                                                <li>os.O_EXCL: Ensure that this call creates the file exclusively (fails if the file already exists).</li>
+                                                <li>os.O_TRUNC: Truncate the file to zero length if it exists.</li>
+                                            </ul>
+                                        </li>
+                                        <li>mode(int,optional)
+                                            <ul>
+                                                <li>The permissions to set if the file is created (used in conjunction with the os.O_CREAT flag).</li>
+                                                <li>The mode parameter is an octal value representing the permissions (e.g., 0o777).</li>
+                                                <li>This parameter is typically not used on Windows.</li>
+                                            </ul>
+                                        </li>
+                                        <p>
+                                            <b class="bold">Other Possible attributes :<br></b>
+                                            <ul>
+                                                <li>os.O_BINARY and os.O_TEXT (Windows-specific):
+                                                        <li>On Windows, you can use these flags to control how the file is opened with respect to line endings.</li>
+                                                        <li>os.O_BINARY: Open the file in binary mode.</li>
+                                                        <li>os.O_TEXT: Open the file in text mode.</li>
+                                                </li>
+                                                <li>File Descriptor (fd):
+                                                    <li>The returned file descriptor is an integer that represents the opened file. This descriptor is used in subsequent file-related operations.</li>
+                                                </li>
+                                            </ul>
+                                        </p> <img src="../../assets/Python_file_org_ops/os_mod_img4.png" alt="os_mod_img4"> <br>
+                                        <p>In this example:
+                                            <ul>
+                                                <li>The file is opened for writing (os.O_WRONLY).</li>
+                                                <li>The os.O_CREAT flag ensures that the file is created if it doesn't exist.</li>
+                                                <li>The os.O_TRUNC flag truncates the file to zero length.</li>
+                                                <li>The 0o644 permission is set if the file is created.</li>
+                                            </ul>
+                                        </p>
+                                    </ol>
+                                </h5>
+                            <!-- works on both WIndows OS and Linux -->
+                            <h4>Explain with open() as file :</h4>
+                            <li>
+                                code: <br>
+                                <ul><b class="code">
+                                    with open("example.txt", 'r') as file:  <br>
+                                &nbsp;&nbsp;    content = file.read()  <br>
+                                &nbsp;&nbsp;    # Perform operations on the file content <br> <br> <br>
+                                </b></ul>
+                            </li>
+                            <ul class="unbold">
+                                <h4>Explanation:</h4>
+                                <li>with Statement:</li>
+                                The with statement is used to wrap the execution of a block of code with methods defined by a context manager.
+                                For file handling, it ensures that the file is properly opened and closed.
+                                <li>open("example.txt", 'r'):</li>
+                                The open function is used to open a file. In this case, it opens "example.txt" in read-only mode ('r').
+                                The file is opened within the context of the with statement.
+                                <li>as file:</li>
+                                The as keyword is used to create a variable (file in this case) that references the opened file object.
+                                The variable file is only accessible within the indented block under the with statement.
+                                <li>File Operations:</li>
+                                Inside the with block, you can perform operations on the file using the file variable.
+                                In this example, file.read() reads the content of the file into the content variable.
+                                <li>Automatic File Closure:</li>
+                                Once the code block under the with statement is executed, the file is automatically closed. This ensures proper resource management.
+                            </ul>
+                            </ul>
+                    <div class="outernotes">
+                        <h4>Alternative Ways or Possibilities:</h4>
+                        <div class="innernotes">
+                            <ol>
+                                <li>Using a Different Mode:</li>
+                                    <p>
+                                        You can open the file in different modes based on your 
+                                        requirements (e.g., 'w' for write, 'a' for append). <br>Example: <br>
+                                        <b class="code">
+                                            with open("example.txt", 'w') as file: <br> <br>
+                                        &nbsp;&nbsp;&nbsp;        file.write("New content") <br> <br>
+                                        </b>
+                                    </p>
+    
+                                <li>Using readlines() for Line-by-Line Reading:</li>
+                                    <p>
+                                        If you want to read the file line by line, you can use the readlines() method. <br>
+                                        Example: <br>
+                                        <b class="code">
+                                            with open("example.txt", 'r') as file: <br>
+                                        &nbsp;&nbsp;        lines = file.readlines() <br>
+                                        &nbsp;&nbsp;        # Process each line <br>
+                                        </b>
+                                    </p>
+                                
+                                    <li>Handling Exceptions:</li>
+                                    <p>
+                                        You can add exception handling to deal with potential issues, 
+                                        such as file not found or permission errors. <br>
+                                        Example: <br>
+                                        <b class="code">
+                                            try: <br>
+                                        &nbsp;&nbsp;&nbsp;        with open("example.txt", 'r') as file: <br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            content = file.read() <br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            # Perform operations on the file content <br>
+                                            except FileNotFoundError: <br>
+                                        &nbsp;&nbsp;&nbsp;        print("File not found.") <br>
+                                            except IOError: <br>
+                                        &nbsp;&nbsp;&nbsp;        print("Error reading the file.") <br>
+                                        </b>
+                                    </p>
+    
+                                <li>Using with for Multiple Files:</li>
+                                <p>
+                                    You can use multiple with statements for managing multiple 
+                                    files simultaneously. <br>Example: <br>
+                                    <b class="code">
+                                        with open("file1.txt", 'r') as file1, open("file2.txt", 'w') as file2: <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;        # Perform operations on both files <br>
+                                    </b>
+                                </p>
+                            </ol>
+                        </div>
+
+                    </div>
+                </li>
+                <li>os.listdir(path='.')</li>
+                    <p>
+                        The os.listdir() function is used to get the list of entries in the specified directory. 
+                        If no directory path is provided, it defaults to the current working directory. 
+                        It returns a list containing the names of the entries (files and directories) 
+                        in the specified directory.
+                    </p>
+                <ul><li>
+                        Parameters:
+                        <p>path (str, optional): The path of the directory for which you want to list the entries. 
+                            Defaults to the current working directory if not provided.</p>
+                    </li>
+                    <ul>
+                        <li>
+                            Compatibility: <br>
+                            <ul>
+                                <li>Windows <p>This function is compatible with Windows. It retrieves the list of entries in the specified directory on Windows file systems.</p></li>
+                                <li>Linux <p>Similarly, it works on Linux systems to get the list of entries in the specified directory.</p></li>
+                            </ul>
+                    </li>
+                    </ul>
+                </ul>
+                <img src="../../assets/Python_file_org_ops/os_mod_img6a_list_dir.png" alt="os_mod_img6a_list_dir.png">
+                <li>os.chdir(path)</li>
+                    <p>
+                        The os.chdir() function is used to change the current working directory to the specified path.
+                    </p>
+                <ul>
+                    <li>Parameters <p>path (str): The path to the directory to which you want to change the current working directory.</p></li>
+                    <li>Compatibility
+                        <ul>
+                            <li>Windows <p>This function is compatible with Windows. It allows changing the current working directory on Windows systems.</p></li>
+                            <li>Linux <p>Similarly, it works on Linux systems to change the current working directory.</p></li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="../../assets/Python_file_org_ops/os_mod_img6b_change_dir.png" alt="os_mod_img6b_change_dir.png">
+            </ol>
+        </ol>
+    <h2>Path Manipulation &amp; File - Directory Manipulations in the os Module</h2>
+    
+    <ol>
+        Path Manipulation <br>
+        <li> <b class="bold">os.path.join(path, *paths)</b>
+                <p>The <b class="bold"> os.path.join() </b>function is used to concatenate path components with the 
+                    appropriate separator for the operating system. It creates a complete path 
+                    by joining one or more path components intelligently.
+                </p>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li class="bold">path (str): <p>The base path.</p></li>
+                        <li class="bold">*paths (str): <p>Additional path components to be joined.</p></li>
+                    </ul>
+                
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li>Windows <p>Compatible with Windows. Uses backslashes as path separators.</p></li>
+                        <li>Linux <p>Compatible with Linux. Uses forward slashes as path separators.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <b class="code">
+                        # path Manipulation <br> <br>
+                        import os <br> <br>
+                        # Join path components <br> <br>
+                        full_path = os.path.join("C:\\", "Users", "User", "Documents", "Doc1.docx") <br> <br>
+                        print("Full Path:", full_path) <br> <br>
+                    </b>
+                    <img src="../../assets/Python_file_org_ops/os_mod_img7__os.path.join.png" alt="">
+            </ul>
+        </li>
+        <li> <b class="bold">os.path.abspath(path) </b>
+                <p>The <b class="bold"> os.path.abspath() </b>function returns the absolute version of a path.</p>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str): <p>The path to be converted to an absolute path.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li>Windows <b class="unbold"> Compatible with Windows.</b></li>
+                        <li>Linux <b class="unbold"> Compatible with Linux.</b></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                <img src="../../assets/Python_file_org_ops/File_org_win_mod_Absolute Path_image8.png" alt="File_org_win_mod_Absolute Path_image8">
+            </ul>
+        </li>
+        <li> <b class="bold"> os.path.exists(path) </b>
+                <p>The<b class="bold"> os.path.exists() </b>function checks whether a path exists or not.</p>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li class="bold">path (str): <p>The path to be checked.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                <p class="code">
+                &nbsp;    import os <br>
+                &nbsp;    # Check if path exists <br>
+                &nbsp;    path_exists = os.path.exists("file.txt") <br>
+                &nbsp;    print("Path Exists:", path_exists) <br>
+                </p><img src="../../assets/Python_file_org_ops/os_mod_win_os.path.exists(path)_outputIMage.png" alt="os_mod_win_os.path.exists(path)_outputIMage">
+            </ul>
+        </li>
+        <li> <b class="bold">os.path.isdir(path)</b>
+                <p>The<b class="bold"> os.path.isdir() </b>function checks whether a given path is a directory.</p>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str): <p>The path to be checked.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p class="code">
+                        import os <br>
+                        # Check if path is a directory <br>
+                        is_directory = os.path.isdir("folder") <br>
+                        print("Is Directory:", is_directory) <br>
+                    </p>
+                    <img src="../../assets/Python_file_org_ops/os_mod_win_os.path.isdir(path)_image_output_8.png" alt="os_mod_win_os.path.isdir(path)_image_output_8.png">
+            </ul>
+        </li>
+        <li> <b class="bold">os.mkdir(path) </b>
+            <p>The <b class="bold"> os.mkdir() </b>function creates a directory.</p>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>path (str): The path of the directory to be created.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p class="code">
+                        import os <br>
+                        # Create a directory <br>
+                        os.mkdir("new_directory") <br>
+                    </p>
+                    <img src="../../assets/Python_file_org_ops/os_mod_win_os.mkdir(path)_image9.png" alt="os_mod_win_os.mkdir(path)_image9">
+            </ul>
+        </li>
+    </ol>
+    
+    <ol>
+        File and Directory Manipulation <br>
+        <li> <b class="bold">os.makedirs(path)</b>
+            <ul> The <b class="bold"> os.makedirs() </b>function creates directories recursively.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str): <p>The path of the directory to be created along with any necessary parent directories.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p class="code">
+                        # create directories recursively <br>
+                        # make folder-tree along with subfolders in it <br>
+                        import os <br>
+                        new_directory = r"P:\PROJECT_python\GIT\File_organizations"  &nbsp;&nbsp;  # Remove "example1.txt" from the path <br>
+                        os.chdir(new_directory) <br>
+                        updated_directory = os.getcwd() <br>
+                        print("Updated Working Directory:", updated_directory) <br>
+                        # Create directories recursively <br>
+                        os.makedirs("d1/b2/a3") <br>
+                    </p> <img src="../../assets/Python_file_org_ops/os_mod_win_os.makedirs(path) _image.png" alt="os_mod_win_os.makedirs(path) _image">
+            </ul>
+        </li>
+        <li><b class="bold"> os.remove(path) </b><p>The <b class="bold">os.remove() </b>function removes a file.</p>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str): <p>The path of the file to be removed.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li> <br> <br> checking the current path and set it to desired path to create and remove the file <br> <br>
+                Creating folder add_remove first <br>
+                then adding add_remove.txt file to it <br>
+                <p class="code">
+                    import os <br>
+                    directory_whoami = os.getcwd() <br>
+                    print("Current Working Directory:", directory_whoami) <br>
+                    directory_operations = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations"  # Remove "example1.txt" from the path <br>
+                    os.chdir(directory_operations) <br>
+                    directory_whoami = os.getcwd() <br>
+                    print("Updated Working Directory:", directory_whoami) <br>
+                    # Create a directory <br>
+                    os.mkdir("recursive") <br>
+                    # Create directories recursively <br>
+                    os.makedirs("recursive/a1/b3/d1/b2/a3") <br>
+                    # Create another directory <br>
+                    os.mkdir("add_remove") <br>
+                    add_remove_path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\add_remove" <br>
+                    os.chdir(add_remove_path) <br>
+                    directory_whoami = os.getcwd() <br>
+                    print("Updated Working Directory after creating directories recursively and\nadd remove directory :", directory_whoami) <br>
+                    <br>
+                </p><img src="../../assets/Python_file_org_ops/OS_mod_win_os_os.remove(path)_img10a.png" alt="OS_mod_win_os_os.remove(path)_img_10a"> <br> <br>
+                output folder result : <br> <br>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_os_os.remove(path)_img10b.png" alt="OS_mod_win_os_os.remove(path)_img10b">
+                now creating the file add_remove.txt
+                    <p class="code">
+                        file_path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\add_remove\add_remove.txt" <br>
+                        fd1 =os.open(file_path,os.O_WRONLY | os.O_CREAT | os.O_TRUNC,0o777) <br>
+                        os.write(fd1, b"Please remove this file asap") <br>
+                    </p><img src="../../assets/Python_file_org_ops/OS_mod_win_os_os.remove(path)_img10c.png" alt="OS_mod_win_os_os.remove(path)_img10c.png">
+                    output folder status <br> <br>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_os_os.remove(path)_img10d.png" alt="OS_mod_win_os_os.remove(path)_img10d.png">
+                now deleting the file add_remove.txt
+                    <p class="code">
+                        os.close(fd1) <br>
+                        print(f"current working directory, {os.getcwd()}") <br>
+                        # Remove a file <br>
+                        os.remove("add_remove.txt") <br>
+                    </p><img src="../../assets/Python_file_org_ops/OS_mod_win_os_os.remove(path)_img10e.png" alt="OS_mod_win_os_os.remove(path)_img10e.png"> <br>
+                    output folder status <br> <br>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_os_os.remove(path)_img10f.png" alt="OS_mod_win_os_os.remove(path)_img10f.png">
+            </ul>
+        </li>
+        <li><b class="bold">os.removedirs(path)</b>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str): <p>The path of the directory to be removed along with any necessary parent directories.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example : <br> before removing the directories :</li>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_os.removedirs(path)_image1.png" alt="OS_mod_win_os.removedirs(path)_image1.png"> <br>
+                    after removal: <br>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_os.removedirs(path)_image2.png" alt="OS_mod_win_os.removedirs(path)_image2.png"> <br>
+                    <p class="code">
+                        # code to delete directories in a desired path <br>
+ <br>
+                        import os <br>
+                        # check path <br>
+                        directory_whoami = os.getcwd() <br>
+                        print("Current Working Directory:", directory_whoami) <br>
+                        directory_operations = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\add_remove"  # Remove "example1.txt" from the path <br>
+                        os.chdir(directory_operations) <br>
+                        directory_whoami = os.getcwd() <br>
+                        print("Updated Working Directory:", directory_whoami) <br>
+ <br>
+                        # Remove directories recursively <br>
+                        try: <br>
+                    &nbsp;&nbsp;        os.removedirs(r"New folder_2\New folder_3\New folder_3_2\New folder_3_3") <br>
+                    &nbsp;&nbsp;        print("Directories removed successfully") <br>
+                        except OSError as error: <br>
+                    &nbsp;&nbsp;        print("Error removing directories:", error) <br>
+                    </p> 
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_os.removedirs(path)_image3.png" alt="OS_mod_win_os.removedirs(path)_image3.png"> <br>
+            </ul>
+        </li>
+        <li>
+
+            <ul><b class="bold">os.rmdir(path)</b>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>The os.rmdir()<p> function removes a directory.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example : <br> before removing the folder "New Folder" </li>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.rmdir(path)2.png" alt=""> <br>
+                <p class="code">
+                    # code to delete directories in a desired path <br>
+                    import os <br>
+                    # check path <br>
+                    directory_whoami = os.getcwd() <br>
+                    print("Current Working Directory:", directory_whoami) <br>
+                    directory_operations = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\add_remove"  # Remove "example1.txt" from the path <br>
+                    os.chdir(directory_operations) <br>
+                    directory_whoami = os.getcwd() <br>
+                    print("Updated Working Directory:", directory_whoami) <br> <br>
+                    # Remove a directory <br>
+                    try: <br>
+            &nbsp;&nbsp;        os.rmdir("New folder") <br>
+            &nbsp;&nbsp;        print("Directory removed successfully") <br>
+                    except OSError as e: <br>
+            &nbsp;&nbsp;        print(f"Error: {e}") <br>
+                </p> After removing the fe "New Folder" <br>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.rmdir(path)2a.png" alt="OS_mod_win_os.rmdir(path)2a"><br>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.rmdir(path)2b.png" alt="OS_mod_win_os.rmdir(path)2b.png">
+            </ul>
+        </li>
+        <li> <b class="bold">os.rename(src, dst)</b> <b class="unbold">The os.rename() function renames a file or directory.</b>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>src (str): <p>The source path (old name).</p></li>
+                        <li>dst (str): <p>The destination path (new name).</p></li>
+                        <li>src (str): <p>The source path, representing the current name of the file or directory that you want to rename.</p></li>
+                        <li>dst (str): <p>The destination path, representing the new name you want to assign to the file or directory.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li> <br>
+                Renaming files <br>
+                before <br>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.rename(src, dst)_IMG1.png" alt="OS_mod_win_os.rename(src, dst)_IMG1.png"> <br>
+                after <br>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.rename(src, dst)_IMG2.png" alt="OS_mod_win_os.rename(src, dst)_IMG2.png"> <br>
+                Code <br>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.rename(src, dst)_IMG3.png" alt="OS_mod_win_os.rename(src, dst)_IMG3.png"> <br>
+                Example 2: Rename a Directory <br>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.rename(src, dst)_IMG4.png" alt="OS_mod_win_os.rename(src, dst)_IMG4"> <br>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.rename(src, dst)_IMG5.png" alt="OS_mod_win_os.rename(src, dst)_IMG5.png "> <br>
+                Example 3 <br>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.rename(src, dst)_IMG6.png" alt="OS_mod_win_os.rename(src, dst)_IMG6.png"> <br>
+                exmaple 4 <br>
+                <p>This example shows that you can provide full paths for both the source and destination, allowing you to rename files in specific locations.</p>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.rename(src, dst)_via_path_IMG7.png" alt="OS_mod_win_os.rename(src, dst)_via_path_IMG7.png"> <br>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.rename(src, dst)_via_path_IMG7a.png" alt="OS_mod_win_os.rename(src, dst)_via_path_IMG7a.png"> <br>
+            </ul>
+        </li>
+        <!-- <li>
+            
+
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p></p></li>
+                        <li><p></p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li>Windows </li>
+                        <li>Linux </li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+            </ul>
+        </li> -->
+        <div class="outernotes">
+            SIDE NOTE -- "file mode" or "permission mode
+            <div class="innernotes">
+                <p>
+                    The "file mode" or "permission mode" is a way to specify the access permissions for a file in Unix-like operating systems, 
+                    including Linux and macOS. The 0o644 is a numeric representation of file permissions in octal (base-8) format. <br>
+                    In the context of os.open in Python, the file mode is used to set the permissions for the file being opened. 
+                    The 0o644 can be broken down into two parts:
+                </p>
+                <ul>
+                    <li>0o: Indicates that the following digits are in octal (base-8) format.</li>
+                    <li>644: Represents the permission bits.</li>
+                </ul>
+                <p>Each digit in the 644 corresponds to a set of permissions:</p>
+                <ul>
+                    <li>6: Read and write permission for the owner of the file.</li>
+                    <li>4: Read-only permission for the group that owns the file.</li>
+                    <li>4: Read-only permission for others (users not in the group).</li>
+                </ul>
+                <p>
+                    The permission bits are often represented using three octal digits, where each digit corresponds 
+                    to the permissions for the owner, group, and others, respectively. In this case, 644 means read 
+                    and write for the owner, and read-only for the group and others. <br>
+                    So, in summary, 0o644 is specifying that the file being opened should have read and write 
+                    permissions for the owner and read-only permissions for the group and others. <br>
+                </p>
+            </div>
+            SIDE NOTE -- explaining other permissions <br>
+            <div class="innernotes">
+                <p>
+                    In Unix-like operating systems, file permissions are represented by a three-digit octal number, 
+                    where each digit corresponds to a set of permissions for the owner, group, and others, respectively. 
+                    Each digit is a combination of three permission bits: read (r), write (w), and execute (x). 
+                </p>
+                <ol>Here's an overview of the different permission bits: <br>
+                    <li>Read (r): <p>If this bit is set (1), it allows reading the file or viewing the contents of a directory. </p></li>
+                    <li>Write (w):<p> If this bit is set (1), it allows modifying the file (writing to it) or adding/removing files from a directory. </p></li>
+                    <li>Execute (x):<p> For files, if this bit is set (1), it allows the file to be executed as a program. For directories, if this bit is set, it allows accessing files and subdirectories within the directory. </p></li>
+                </ol>
+                <ul>Now, let's break down common permission values: <br>
+                    <li>0o400: Read permission only for the owner.</li>
+                    <li>0o200: Write permission only for the owner.</li>
+                    <li>0o100: Execute permission only for the owner.</li>
+                    <li>0o040: Read permission only for the group.</li>
+                    <li>0o020: Write permission only for the group.</li>
+                    <li>0o010: Execute permission only for the group.</li>
+                    <li>0o004: Read permission only for others.</li>
+                    <li>0o002: Write permission only for others.</li>
+                    <li>0o001: Execute permission only for others.</li>
+                </ul>
+                <ul>
+                    When combined, you can create various permission combinations. For example: <br>
+                    <li>0o755: Read, write, and execute for the owner; read and execute for the group and others. Common for executabl <br>e files.</li>
+                    <li>0o644: Read and write for the owner; read-only for the group and others. Common for non-executable files.</li>
+                    These permission values are a way to control who can do what with a file or directory in a Unix-like file system. The octal representation simplifies the expression of these permissions using a compact three-digit number.
+                </ul>
+            </div>
+        </div>
+    </ol>
+    <ol>Environment Variables: <br>
+        <li><b class="bold">os.environ -</b>- <b class="unbold">The os.environ attribute provides a dictionary-like interface to the environment variables of the current process.</b>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>This attribute does not take parameters.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                <p class="code">
+                    import os <br>
+                    # Access all environment variables <br> <br>
+                    all_env_vars = os.environ <br> <br>
+                    print("All Environment Variables:", all_env_vars) <br> <br> <br> <br>
+                    Output: <br> <br>
+                    All Environment Variables: environ({'ALLUSERSPROFILE': 'C:\\ProgramData', 'APPDATA': 'C:\\Users\\biswa\\AppData\\Roaming',  <br>
+                    'CHROME_CRASHPAD_PIPE_NAME': '\\\\.\\pipe\\crashpad_10956_SPJVOPPRCDONGLCR',  <br>
+                    'COMMONPROGRAMFILES': 'C:\\Program Files\\Common Files',  <br>
+                    'COMMONPROGRAMFILES(X86)': 'C:\\Program Files (x86)\\Common Files',  <br>
+                    'COMMONPROGRAMW6432': 'C:\\Program Files\\Common Files', 'COMPUTERNAME': 'DESKTOP-12Q1DTN', 'COMSPEC': 'C:\\Windows\\system32\\cmd.exe',  <br>
+                    'DRIVERDATA': 'C:\\Windows\\System32\\Drivers\\DriverData', 'ELECTRON_RUN_AS_NODE': '1',  <br>
+                    'FPS_BROWSER_APP_PROFILE_STRING': 'Internet Explorer', 'FPS_BROWSER_USER_PROFILE_STRING': 'Default', 'HOMEDRIVE': 'C:',  <br>
+                    'HOMEPATH': '\\Users\\biswa', 'JPY_INTERRUPT_EVENT': '2540', 'LOCALAPPDATA': 'C:\\Users\\biswa\\AppData\\Local',  <br>
+                    'LOGONSERVER': '\\\\DESKTOP-12Q1DTN', 'NUMBER_OF_PROCESSORS': '4', 'ONEDRIVE': 'C:\\Users\\biswa\\OneDrive',  <br>
+                    'ONEDRIVECONSUMER': 'C:\\Users\\biswa\\OneDrive', 'ORIGINAL_XDG_CURRENT_DESKTOP': 'undefined', 'OS': 'Windows_NT',  <br>
+                    'PATH': 'p:\\Python310;c:\\Users\\biswa\\AppData\\Roaming\\Python\\Python310\\Scripts; <br>
+                    P:\\Python310\\Scripts\\;P:\\Python310\\;C:\\Windows\\system32; <br>
+                    C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\; <br>
+                    C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Gpg4win\\..\\GnuPG\\bin; <br>
+                    C:\\Program Files\\Git\\cmd;C:\\Program Files\\Microsoft VS Code\\bin;P:\\anaconda3; <br>
+                    P:\\anaconda3\\Library\\mingw-w64\\bin;P:\\anaconda3\\Library\\usr\\bin; <br> 
+                    P:\\anaconda3\\Library\\bin;P:\\anaconda3\\Scripts;C:\\Users\\biswa\\AppData\\Local\\Microsoft\\WindowsApps; <br>
+                    P:\\PyCharmComm\\PyCharm Community Edition 2022.2.1\\bin;;C:\\Users\\biswa\\AppData\\Local\\GitHubDesktop\\bin; <br>
+                    P:\\Python310\\Scripts\\;P:\\Python310\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem; <br>
+                    C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\; <br>
+                    C:\\Program Files (x86)\\Gpg4win\\..\\GnuPG\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Microsoft VS Code\\bin; <br>
+                    P:\\anaconda3;P:\\anaconda3\\Library\\mingw-w64\\bin;P:\\anaconda3\\Library\\usr\\bin;P:\\anaconda3\\Library\\bin; <br>
+                    P:\\anaconda3\\Scripts;C:\\Users\\biswa\\AppData\\Local\\Microsoft\\WindowsApps; <br>
+                    P:\\PyCharmComm\\PyCharm Community Edition 2022.2.1\\bin;; <br>
+                    C:\\Users\\biswa\\AppData\\Local\\GitHubDesktop\\bin', ' <br>
+                    PATHEXT': '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW',  <br>
+                    'PROCESSOR_ARCHITECTURE': 'AMD64', 'PROCESSOR_IDENTIFIER': 'Intel64 Family 6 Model 78 Stepping 3, GenuineIntel',  <br>
+                    'PROCESSOR_LEVEL': '6', 'PROCESSOR_REVISION': '4e03', 'PROGRAMDATA': 'C:\\ProgramData', 'PROGRAMFILES':  <br>
+                    'C:\\Program Files', 'PROGRAMFILES(X86)': 'C:\\Program Files (x86)', 'PROGRAMW6432': 'C:\\Program Files', 'PSMODULEPATH':  <br>
+                    'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules',  <br>
+                    'PUBLIC': 'C:\\Users\\Public', 'PYCHARM COMMUNITY EDITION': 'P:\\PyCharmComm\\PyCharm Community Edition 2022.2.1\\bin;',  <br>
+                    'PYDEVD_IPYTHON_COMPATIBLE_DEBUGGING': '1', 'PYTHONIOENCODING': 'utf-8', 'PYTHONUNBUFFERED': '1', 'SESSIONNAME': 'Console', 'SYSTEMDRIVE': 'C:',  <br>
+                    'SYSTEMROOT': 'C:\\Windows', 'TEMP': 'C:\\Users\\biswa\\AppData\\Local\\Temp', 'TMP': 'C:\\Users\\biswa\\AppData\\Local\\Temp',  <br>
+                    'USERDOMAIN': 'DESKTOP-12Q1DTN', 'USERDOMAIN_ROAMINGPROFILE': 'DESKTOP-12Q1DTN', 'USERNAME': 'biswa', 'USERPROFILE': 'C:\\Users\\biswa',  <br>
+                    'VSCODE_AMD_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess',  <br>
+                    'VSCODE_CODE_CACHE_PATH': 'C:\\Users\\biswa\\AppData\\Roaming\\Code\\CachedData\\31c37ee8f63491495ac49e43b8544550fbae4533',  <br>
+                    'VSCODE_CRASH_REPORTER_PROCESS_TYPE': 'extensionHost', 'VSCODE_CWD': 'C:\\Program Files\\Microsoft VS Code', 'VSCODE_HANDLES_UNCAUGHT_ERRORS': 'true',  <br>
+                    'VSCODE_IPC_HOOK': '\\\\.\\pipe\\b726c80e-1.86.1-main-sock', 'VSCODE_L10N_BUNDLE_LOCATION': '',  <br>
+                    'VSCODE_NLS_CONFIG': '{"locale":"en-us","osLocale":"en-in","availableLanguages":{},"_languagePackSupport":true}',  <br>
+                    'VSCODE_PID': '10956', 'WINDIR': 'C:\\Windows', 'ZES_ENABLE_SYSMAN': '1', 'TERM': 'xterm-color', 'CLICOLOR': '1', 'PAGER': 'cat', 'GIT_PAGER': 'cat',  <br>
+                    'MPLBACKEND': 'module://matplotlib_inline.backend_inline'}) <br> <br>
+                </p>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_os.environ_Img.png" alt="OS_mod_win_os.environ_Img.png"> <br>
+            </ul>
+        </li>
+
+        <li>
+            <b class="bold">os.getenv(key, default=None)</b>os.getenv(key, default=None) <br>
+            <ul>The os.getenv() function is used to retrieve the value of the environment variable specified by the key.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>key (str): <p>The name of the environment variable whose value you want to retrieve.</p></li>
+                        <li>default (optional): <p>The default value to return if the environment variable is not found.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                <p class="code">
+                    # os.getenv(key, default=None) <br>
+                    import os <br>
+                    # Get the value of the "HOME" environment variable <br>
+                    home_directory = os.getenv("HOME", default="Unknown") <br>
+                    print("Home Directory:", home_directory) <br>
+                </p>
+                <img src="../../assets/Python_file_org_ops/OS_mod_os.getenv(key, default=None)_IMG.png" alt="OS_mod_os.getenv(key, default=None)_IMG"> <br>
+            </ul>
+        </li>
+    </ol>
+    <ol>Process and System Information: <br>
+        <li> <b class="bold">os.system(command) :</b>
+            <ul> The os.system() function is used to execute the specified command in a subshell.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>command (str): <p>The command to be executed.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p class="code">
+                        import os <br>
+                        # Execute a simple command to print the current working directory <br>
+                        os.system("echo %cd%") <br>
+                    </p> <img src="../../assets/Python_file_org_ops/OS_mod_win_os.system_IMG.png" alt="OS_mod_win_os.system_IMG.png"> <br>
+            </ul>
+        </li>
+        <li><b class="bold">os.getpid()</b>
+            <ul>The os.getpid() function returns the current process's process ID.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>This function does not take parameters.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p class="code">
+                        import os <br>
+                        # Get the process ID of the current process <br>
+                        process_id = os.getpid() <br>
+                        print("Process ID:", process_id) <br>
+                    </p><img src="../../assets/Python_file_org_ops/os_mod_win_os.getppid()_image.png" alt="os_mod_win_os.getppid()_image.png"> <br>                    
+            </ul>
+        </li>
+
+        <li> os.getppid()
+
+            <ul> The os.getppid() function returns the parent process's process ID.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>This function does not take parameters.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                <p class="code">
+                    import os <br>
+                    # Get the parent process ID of the current process <br>
+                    parent_process_id = os.getppid() <br>
+                    print("Parent Process ID:", parent_process_id) <br>
+                </p><img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.getppid()_IMG.png" alt="OS_mod_win_OS_os.getppid()_IMG">
+            </ul>
+        </li>
+        <li> <b class="bold"> os.cpu_count() </b>
+            <ul> The os.cpu_count() function returns the number of CPUs in the system.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p> This function does not take parameters. </p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                        <p class="code">
+                            import os <br>
+                            # Get the number of CPUs in the system <br>
+                            cpu_count = os.cpu_count() <br>
+                            print("Number of CPUs:", cpu_count) <br>
+                        </p> <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.cpu_count()_IMG.png" alt="OS_mod_win_OS_os.cpu_count()_IMG">
+            </ul>
+        </li>
+    </ol>
+    <ol> Working with Paths:
+        <li> <b class="bold"> os.path.split(path)</b>
+            <ul> The <b class="bold">os.path.split() </b>function splits the pathname specified by path into a pair (head, tail), 
+                where tail is the last pathname component and head is everything leading up to that.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p><b class="bold">path (str): </b>The path to be split.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p class="code">
+                        # path (str) <br>
+                        import os <br>
+                        # Split a path into head and tail <br>
+                        path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt" <br>
+                        head, tail = os.path.split(path) <br>
+                        print("Head:", head) <br>
+                        print("Tail:", tail) <br>
+                    </p>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_path (str)_IMG.png" alt="OS_mod_win_OS_path (str)_IMG.png">
+            </ul>
+        </li>
+        <li> <b class="bold"> os.path.basename(path) </b>
+            <ul> The os.path.basename() function returns the last component of a pathname.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>path (str): The path from which to extract the last component.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p class="code">
+                        # os.path.basename(path) <br>
+                        import os <br>
+                        # Get the last component of a path <br>
+                        path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt" <br>
+                        basename = os.path.basename(path) <br>
+                        print("Last Component:", basename) <br>
+                    </p>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.path.basename(path)_IMG.png" alt="OS_mod_win_OS_os.path.basename(path)_IMG.png">
+            </ul>
+        </li>
+        <li> <b class="bold"> os.path.dirname(path) </b>
+            <ul> The os.path.dirname() function returns the directory component of a pathname. <br>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>path (str): The path from which to extract the directory component.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p>
+                        #  os.path.dirname(path)  <br>
+                        import os <br>
+                        # Get the directory component of a path <br>
+                        path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt" <br>
+                        dirname = os.path.dirname(path) <br>
+                        print("Directory Component:", dirname) <br>
+                    </p>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.path.dirname(path).png" alt="OS_mod_win_OS_os.path.dirname(path).png">
+            </ul>
+        </li>
+
+    </ol>
+    <ol>Permissions and Ownership:
+        <li> <b class="bold"> os.chmod(path, mode) </b>
+            <ul> The os.chmod() function changes the permissions of a path.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str): <p>The path to the file or directory whose permissions need to be changed.</p></li>
+                        <li>mode (int): <p>The permission mode to set.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p> Limited functionality; mainly used for read-only attribute.</p></li>
+                        <li class="bold">Linux <p>Fully functional for changing permissions.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p>
+                        # linux <br>
+                        #  os.chmod(path, mode) <br>
+                        import os <br>
+                        # Change file permissions to read and write for the owner <br>
+                        os.chmod("file.txt", 0o600) <br>
+                    </p>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.chmod(path, mode)_IMG.png" alt="OS_mod_win_OS_os.chmod(path, mode)_IMG">
+            </ul>
+        </li>
+        <li><b class="bold"> os.chown(path, uid, gid) </b>
+            <ul> <b class="bold">The os.chown()</b>  function changes the owner and group id of a path.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str): <p>The path to the file or directory whose ownership needs to be changed.</p></li>
+                        <li>uid (int): <p>The user id of the new owner.</p></li>
+                        <li>gid (int): <p>The group id of the new owner.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p> Not applicable.</p></li>
+                        <li class="bold">Linux <p>Fully functional for changing ownership.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p>
+                        # Linux <br>
+                        # os.chown(path, uid, gid) <br>
+                        import os <br>
+                        # Change the owner of a file to a specific user and group <br>
+                        os.chown("file.txt", 1000, 1000) <br>
+                    </p>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.chown(path, uid, gid)_IMG.png" alt="OS_mod_win_OS_os.chown(path, uid, gid)_IMG">
+            </ul>
+        </li>
+    </ol>
+    <ol>File and Directory Statistics:
+        <li> os.stat(path)
+            <ul> <b class="bold">The os.stat() </b> function gets the status of a path.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str): <p>The path to the file or directory.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                <p>
+                    import os <br>
+                    path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt" <br>
+                    # Get the status of a file <br>
+                    file_status = os.stat(path) <br>
+                    print("File Status:", file_status) <br>
+                </p>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.stat(path)_IMG.png" alt="OS_mod_win_OS_os.stat(path)_IMG">
+            </ul>
+        </li>
+        <li> <b class="bold"> os.path.getsize(path) </b>
+            <ul> <b class="bold">The os.path.getsize() </b> function returns the size of a file.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><b class="bold"> path (str): </b>The path to the file. </li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p class="code">
+                        # win  <br>
+                        # os.path.getsize(path) <br>
+                        import os <br>
+                        path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt" <br>
+                        # Get the size of a file <br>
+                        file_size = os.path.getsize(path) <br>
+                        print("File Size:", file_size) <br>
+                    </p>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.path.getsize(path)_IMG1.png" alt="OS_mod_win_OS_os.path.getsize(path)_IMG1">
+            </ul>
+        </li>
+        <li>  The<b class="bold"> os.path.getctime()  </b>function returns the creation time of a file.
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li class="bold">path (str): <p class="unbold">The path to the file.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Compatible with Windows.</p></li>
+                        <li class="bold">Linux <p>Compatible with Linux.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                        <p class="code">
+                            # win  <br>
+                            # os.path.getctime(path) <br>
+                            import os <br>
+                            path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt" <br>
+                            # Get the creation time of a file <br>
+                            creation_time = os.path.getctime(path) <br>
+                            print("Creation Time:", creation_time) <br>
+                        </p>
+                        <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.path.getctime(path)_IMG.png" alt="OS_mod_win_OS_os.path.getctime(path)_IMG.png">                        
+            </ul>
+        </li>
+    </ol> Constants:
+    <ol>
+        <li> <b class="bold">os.sep</b>
+            <ul> The<b class="bold">os.sep</b>constant represents the path separator used by the operating system.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>This is a constant; it does not take parameters.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p> '\'</p></li>
+                        <li class="bold">Linux <p>'/'</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                <p class="code">P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt</p>
+            </ul>
+        </li>
+        <li> <b class="bold">os.pathsep</b>
+            <ul>
+                <p>
+                    The <b class="bold">os.pathsep </b>constant represents the character used to 
+                    separate different paths in the PATH environment variable.
+                </p>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>This is a constant; it does not take parameters.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p> ';'</p></li>
+                        <li class="bold">Linux <p>':'</p></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li> <b class="bold">os.linesep</b>
+            <p>The <b class="bold">os.linesep</b> constant represents the line separator used by the operating system.</p>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>This is a constant; it does not take parameters. </p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p> '\r\n'</p></li>
+                        <li class="bold">Linux <p>'\n'</p></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+    <ol> Miscellaneous: 
+        <li> 
+            <b class="bold">os.name </b>
+            <ul> The os.name constant represents the name of the operating system dependent module imported.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>This is a constant; it does not take parameters.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p> 'nt'</p></li>
+                        <li class="bold">Linux <p>'posix'</p></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li> <b class="bold">os.walk(top, topdown=True, onerror=None, followlinks=False)</b>
+            <p>
+                The <b class="bold"> os.walk() </b>function generates the file names in a directory tree by walking either top-down or 
+                bottom-up through the directory tree.
+            </p>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>top (str): <p>The root directory from which to begin the walk.</p></li>
+                        <li>topdown (bool, optional): <p>If True, the directory tree is walked from top-down; if False, from bottom-up.</p></li>
+                        <li>onerror (function, optional): <p>If provided, it is called with an OSError instance if any error occurs.</p></li>
+                        <li>followlinks (bool, optional): <p>If True, it visits directories pointed to by symbolic links.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Fully functional.</p></li>
+                        <li class="bold">Linux <p>Fully functional.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.walk(top, topdown=True, onerror=None, followlinks=False)_IMG.png" alt="OS_mod_win_OS_os.walk(top, topdown=True, onerror=None, followlinks=False)_IMG.png">
+            </ul>
+        </li>
+    </ol>
+    <ol> File and Directory Permissions:
+        <li class="unbold"> <b class="bold"> os.access(path, mode)</b>  &nbsp; &nbsp; The <b class="bold"> os.access()</b> 
+            function checks the accessibility of a path.
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str): <p>The path to the file or directory.</p></li>
+                        <li>mode (int): <p>The mode of access (e.g., os.R_OK for read access).</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Limited; mainly used for read access.</p></li>
+                        <li class="bold">Linux <p>Fully functional.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                        <p class="code">
+                            # File and Directory Permissions: <br>
+                            # os.access(path, mode) - Checks if a file or directory has the specified permissions. <br>
+                            import os <br>
+                            path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt" <br>
+                            # Check if a file is readable <br>
+                            is_readable = os.access(path, os.R_OK) <br>
+                            print("Is Readable:", is_readable) <br>
+                        </p>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.access(path, mode)_IMG.png" alt="OS_mod_win_OS_os.access(path, mode)_IMG.png">
+            </ul>
+        </li>
+    </ol>
+    <ol>
+        File System Encoding:
+    <li class="unbold"> <b class="bold"> os.fsencode(filename) </b> &nbsp;&nbsp; 
+        The <b class="bold"> os.fsencode() </b>function encodes a filename to the file system encoding.       
+    <ul>
+        <li>
+            Parameters :
+            <ul>
+                <li>filename (str): <p>The filename to be encoded.</p></li>
+            </ul>
+        </li>
+        <li>
+            Compatibility :
+            <ul>
+                <li class="bold">Windows <p> Fully functional.</p></li>
+                <li class="bold">Linux <p> Fully functional.</p></li>
+            </ul>
+        </li>
+        <li>Examples :</li>
+        <p class="code">
+            # os.fsencode(filename) <br>
+            import os <br>
+            path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt" <br>
+            # Encode a filename to the file system encoding <br>
+            encoded_filename = os.fsencode(path) <br>
+            print("Encoded Filename:", encoded_filename) <br>
+        </p>
+        <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.fsencode(filename)_IMG.png" alt="OS_mod_win_OS_os.fsencode(filename)_IMG">
+    </ul>
+</li>
+<li class="unbold"> <b class="bold"> os.fsdecode(filename) :--</b> The <b class="bold"> os.fsdecode() </b>function decodes a filename from the file system encoding.
+    <ul>
+        <li>
+            Parameters :
+            <ul>
+                <li>filename (bytes): <p>The filename to be decoded.</p></li>
+                <li><p></p></li>
+            </ul>
+        </li>
+        <li>
+            Compatibility :
+            <ul>
+                <li class="bold">Windows <p>Fully functional.</p></li>
+                <li class="bold">Linux <p>Fully functional.</p></li>
+            </ul>
+        </li>
+        <li>Example : - </li>
+                <p class="code">
+                    # os.fsdecode(filename) <br>
+                    import os <br>
+                    path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt" <br>
+                    # Decode a filename from the file system encoding <br>
+                    decoded_filename = os.fsdecode(b'old BREW.txt') <br>
+                    print("Decoded Filename:", decoded_filename) <br>
+                </p>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.fsdecode(filename)_IMG.png" alt="OS_mod_win_OS_os.fsdecode(filename)_IMG.png"> <br>
+    </ul>
+</li>
+</ol>
+    <ol>Creating Temporary Files and Directories:
+        <li class="unbold"> <b class="bold">os.mkstemp(suffix='', prefix='', dir=None, text=False) :--</b> The  <b class="bold">os.mkstemp() </b>function creates a temporary file.
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>suffix (str, optional): <p>The suffix to be appended to the temporary file name.</p></li>
+                        <li>prefix (str, optional): <p>The prefix to be prepended to the temporary file name.</p></li>
+                        <li>dir (str, optional): <p>The directory where the temporary file will be created.</p></li>
+                        <li>text (bool, optional): <p>If True, the file is opened in text mode.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Fully functional.</p></li>
+                        <li class="bold">Linux <p>Fully functional.</p></li>
+                    </ul>
+                </li>
+                <li>Depracation Issue :
+                    <p>
+                        The os.mkstemp() function is available in Python 2.x and Python 3.x versions up to Python 3.9. 
+                        However, starting from Python 3.10, os.mkstemp() has been deprecated in favor of tempfile.mkstemp(). <br> <br>
+                        In Python 3.10, the os.mkstemp() function has been deprecated in favor of the tempfile.mkstemp() 
+                        function. To fix the issue and make your code 
+                        compatible with Python 3.10, you need to use tempfile.mkstemp() instead of os.mkstemp().
+                    </p>
+
+                </li>
+                <li>Exaamples :- 
+                    <li>Before Python 3.10</li>
+                     <p class="code">
+                        <b># os.mkstemp(suffix='', prefix='', dir=None, text=False) <br> <br></b>
+                        import os <br> <br>
+                        # Create a temporary file <br> <br>
+                        temp_file_descriptor, temp_file_path = os.mkstemp(suffix='.txt', prefix='temp_', text=True) <br> <br>
+                        print("Temporary File Path:", temp_file_path) <br> <br>
+                     </p>
+                    <li>Since Python 3.10 Version</li>
+                    <p class="code">
+                        <b># tempfile.mkstemp <br> <br></b>
+                        import tempfile <br> <br>
+                        # Create a temporary file <br> <br>
+                        temp_file_descriptor, temp_file_path = tempfile.mkstemp(suffix='.txt', prefix='temp_', text=True) <br> <br>
+                        print("Temporary File Path:", temp_file_path) <br> 
+                    </p>
+                    <img src="../../assets/Python_file_org_ops/tempfile.mkstemp(suffix='.txt', prefix='temp_', text=True)_IMG .png" alt="tempfile.mkstemp(suffix='.txt', prefix='temp_', text=True)_IMG .png">
+                </li>
+
+            </ul>
+        </li>
+        <li class="unbold"> <b class="bold">os.makedirs(path, mode=0o777, exist_ok=False)</b> The <b class="bold"> os.makedirs()</b> 
+            function creates a directory and its parents if they do not exist.
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str): <p>The path of the directory to be created.</p></li>
+                        <li>mode (int, optional): <p>The permissions to set for the newly created directory.</p></li>
+                        <li>exist_ok (bool, optional): <p>If True, the function does not raise an error if the directory already exists.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Fully functional.</p></li>
+                        <li class="bold">Linux <p>Fully functional.</p></li>
+                    </ul>
+                </li>
+                <li>Examples :</li>
+                    <p class="code">
+                        # os.makedirs(path, mode=0o777, exist_ok=False) <br>
+                        import os <br>
+                        path = r"P:\GIT4BothOS_Lnx_win\GIT\Folder 1\folder 2" <br>
+                        os.makedirs(path, mode=0o755, exist_ok=True) <br>
+                    </p>
+                    Before :
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.makedirs(path, mode=0o777, exist_ok=False)_IMG1.png" alt="OS_mod_win_OS_os.makedirs(path, mode=0o777, exist_ok=False)_IMG1.png"> <br>
+                    After :
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.makedirs(path, mode=0o777, exist_ok=False)_IMG2.png" alt="OS_mod_win_OS_os.makedirs(path, mode=0o777, exist_ok=False)_IMG2.png"> <br>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.makedirs(path, mode=0o777, exist_ok=False)_IMG3.png" alt="OS_mod_win_OS_os.makedirs(path, mode=0o777, exist_ok=False)_IMG3"> <br>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.makedirs(path, mode=0o777, exist_ok=False)_IMG4.png" alt="OS_mod_win_OS_os.makedirs(path, mode=0o777, exist_ok=False)_IMG4"> <br>
+            </ul>
+        </li>
+    </ol>
+    <ol>Working with File Times:
+        <li class="unbold"> <b class="bold">os.utime(path, times=None, *, ns=None, follow_symlinks=True)</b> 
+            The <b class="bold"> os.utime()</b> function sets the access and modified times of a file.
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str): <p>The path to the file.</p></li>
+                        <li>times (tuple, optional): <p>A tuple of two floats representing the access and modified times.</p></li>
+                        <li>ns (tuple, optional): <p>A tuple of two integers representing the access and modified times in</p></li>
+                        <li>follow_symlinks (bool, optional): <p>If False, the function operates on the symbolic link itself.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Fully functional.</p></li>
+                        <li class="bold">Linux <p>Fully functional.</p></li>
+                    </ul>
+                </li>
+                <li>Examples :</li>
+                    <p class="code">
+                        # os.utime(path, times=None, *, ns=None, follow_symlinks=True) <br>
+                        import os <br>
+                        import time <br>
+                        path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt" <br>
+                        # Set the access and modified times of a file <br>
+                        os.utime(path, times=(time.time(), time.time())) <br>
+                        # Get the modified time of the file <br>
+                        file_mod_times = os.path.getmtime(path) <br>
+                        print(file_mod_times) <br>
+                    </p>
+                <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.utime()_IMG.png" alt="OS_mod_win_OS_os.utime()_IMG.png">
+            </ul>
+        </li>
+    </ol>
+    <ol>Creating Symbolic Links:
+        <li> <b class="bold">os.symlink(target, link_name)</b>
+            <p>The <b class="bold"> os.symlink()</b> function creates a symbolic link pointing to a target.</p>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>target (str): <p>The path to the target file or directory.</p></li>
+                        <li>link_name (str): <p>The path where the symbolic link will be created.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Requires administrative privileges.</p></li>
+                        <li class="bold">Linux <p>Fully functional.</p></li>
+                    </ul>
+                </li>
+                <li>Examples :</li>
+                    <p class="code">
+                        import os <br>
+                        # from pathlib import Path <br><br>
+                        # Path to the target file <br>
+                        target_path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\old BREW.txt" <br><br>
+                        # Path where the symbolic link will be created <br>
+                        symbolic_link_path = r"P:\GIT4BothOS_Lnx_win\GIT\File_organizations\symbolic_link.txt" <br><br>
+                        # # Create a symbolic link to the target file <br>
+                        # target = Path(target_path) <br>
+                        # symbolic_link = Path(symbolic_link_path) <br>
+                        # symbolic_link.symlink_to(target) <br>
+                        # # Create a symbolic link to the shared library file <br>
+                        # os.symlink(target_path, symbolic_link_path) <br><br>
+                        print(f"Symbolic link created: {symbolic_link_path} -> {target_path}") <br>
+                    </p>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_Creating Symbolic Links_os.symlink()_IMG.png" alt="OS_mod_win_OS_Creating Symbolic Links_os.symlink()_IMG"><br>
+            </ul>
+        </li>
+    </ol>
+    <ol>Terminal Size:
+
+        <li> <b class="bold">os.get_terminal_size(fallback=(columns, lines))</b>
+            <ul> The <b class="bold">os.get_terminal_size() </b>function gets the size of the terminal window.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>fallback (tuple, optional): <p>A tuple representing the fallback size in columns and lines.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p> Is not supported on Windows.</p></li>
+                        <li class="bold">Linux <p>Fully functional.</p></li>
+                    </ul>
+                </li>
+                <li>Example :</li>
+                    <p class="code">
+                        # os.get_terminal_size() <br>
+                        import os <br>
+ <br>
+                        try: <br>
+                    &nbsp;&nbsp;        # Get the terminal size <br>
+                    &nbsp;&nbsp;        terminal_size = os.get_terminal_size() <br>
+                    &nbsp;&nbsp;        print("Terminal Size:", terminal_size) <br>
+                        except OSError as e: <br>
+                    &nbsp;&nbsp;        if e.winerror == 6:  # Check if the error is due to invalid handle on Windows <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;            terminal_size = (80, 24)  # Default terminal size for Windows <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;            print("Terminal Size (Default for Windows):", terminal_size) <br>
+                            else: <br>
+                    &nbsp;&nbsp;            raise  # Re-raise the exception if it's not related to the handle error <br>
+                    </p>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_Terminal_os.get_terminal_size(fallback=(columns, lines))_IMG.png" alt="OS_mod_win_OS_Terminal_os.get_terminal_size(fallback=(columns, lines))_IMG.png"> <br>
+            </ul>
+        </li>
+    </ol>
+    <ol>Change Working Directory and Environment in a Subprocess:
+        <li> <b class="bold"> os.putenv(key, value)</b>
+            <ul> The <b class="bold"> os.putenv()</b> function sets the value of the environment variable 
+                identified by key to the specified value.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>key (str): <p>The name of the environment variable.</p></li>
+                        <li>value (str): <p>The value to set.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Fully functional.</p></li>
+                        <li class="bold">Linux <p>Fully functional.</p></li>
+                    </ul>
+                </li>
+                <li>Experiments :</li>
+                    <p class="code">
+                        import os <br>
+                        # Set an environment variable <br>
+                        os.putenv("MY_VARIABLE", "my_value") <br>
+                    </p>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.putenv()_IMG.png" alt="OS_mod_win_OS_os.putenv()_IMG">
+            </ul>
+        </li>
+        <li> Changing the Working Directory in a Subprocess:
+            <p>
+                When changing the working directory in a subprocess, you might use os.chdir() along with subprocess.run() to 
+                execute a command in the desired directory.
+            </p>
+            <ul>
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>Null</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Fully functional.</p></li>
+                        <li class="bold">Linux <p>Fully functional.</p></li>
+                    </ul>
+                </li>
+                <li>Experiments :</li>
+                <p class="code">
+                    import os <br>
+                    import subprocess <br>
+                    # Set the desired working directory <br>
+                    working_directory = "/path/to/directory" <br>
+                    # Change the working directory and run a command <br>
+                    subprocess.run(['command'], cwd=working_directory) <br>
+                </p>
+            </ul>
+        </li>
+    </ol>
+    <ol>File and Directory Iterator:
+        <li> <b class="bold">os.scandir(path='.') </b>
+            <ul> The <b class="bold">os.scandir() </b>function returns an iterator of DirEntry objects representing entries in the given directory.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li>path (str, optional): <p>The path to the directory.</p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>
+                        <li class="bold">Windows <p>Fully functional.</p></li>
+                        <li class="bold">Linux <p>Fully functional.</p></li>
+                    </ul>
+                </li>
+                <li>Experiments :</li>
+                    <p class="code">
+                        import os <br> <br>
+                        path = r"E:\YT2024\BANGLA" <br>
+                        # Iterate over entries in a directory <br>
+                        for entry in os.scandir(path): <br>
+                    &nbsp;&nbsp;        print(entry.name) <br>
+                    </p>
+                    <img src="../../assets/Python_file_org_ops/OS_mod_win_OS_os.scandir(path='.')_IMG.png" alt="OS_mod_win_OS_os.scandir(path='.')_IMG">
+            </ul>
+        </li>
+    </ol>
+    <ol>
+        Miscellaneous Constants:
+        <li> os.devnull
+            
+            <ul> The os.devnull constant represents the file path of the null device.
+                <li>
+                    Parameters :
+                    <ul>
+                        <li><p>This is a constant; it does not take parameters.</p></li>
+                        <li><p></p></li>
+                    </ul>
+                </li>
+                <li>
+                    Compatibility :
+                    <ul>: 
+                        <li class="bold">Windows <p>'nul'</p></li>
+                        <li class="bold">Linux <p>'/dev/null'</p></li>
+                    </ul>
+                </li>
+                <li>Experiments :</li>
+                <p class="code">
+                     import os <br> <br>
+                     # Use the null device to discard output <br>
+                     with open(os.devnull, 'w') as null: <br>
+                    &nbsp;&nbsp;     subprocess.run(['command'], stdout=null, stderr=null) <br>
+                </p>
+            </ul>
+        </li>
+    </ol> <br> <br> <br> <br><br> <br>
+    <h2>SYS Module</h2>
+
+    <p>
+        The sys module in Python is a powerful tool that provides access to some variables used or maintained by the Python 
+        interpreter and functions that interact closely with the interpreter. <br> <br>
+        Let's explore some of the primary uses of the sys module along with suitable coding examples:
+    </p>
+    <ol>
+        <li>Accessing Command-Line Arguments: </li>
+            <p>
+                The sys.argv attribute provides access to a list of command-line arguments passed to a Python script. 
+                This can be useful for building scripts that accept input from the command line.
+            </p>
+            <p class="code">
+                import sys <br>
+                # Accessing command-line arguments <br>
+                script_name = sys.argv[0] <br>
+                arguments = sys.argv[1:] <br>
+ <br>
+                print("Script Name:", script_name) <br>
+                print("Arguments:", arguments) <br>
+            </p>
+            <img src="../../assets/Python_file_org_ops/os_mod_win_sys_com_line_args.png" alt="os_mod_win_sys_com_line_args.png">
+        <li>Exiting the Program:</li>
+            <p>
+                The sys.exit() function can be used to terminate the program, optionally specifying an exit status code.
+            </p>
+            <p>
+                #exiting program
+                import sys <br>
+                             <br>
+                # Exiting the program <br>
+                try: <br>
+            &nbsp;&nbsp;        print("Before sys.exit()") <br>
+            &nbsp;&nbsp;        # Exiting the program <br>
+            &nbsp;&nbsp;        sys.exit(0) <br>
+            &nbsp;&nbsp;        print("After sys.exit()")  # This line won't be executed <br>
+                             <br>
+                except SystemExit: <br>
+            &nbsp;&nbsp;        print("Exiting the program") <br>
+            </p>
+        <img src="../../assets/Python_file_org_ops/os_mod_win_SYS_MODULE_a.0.0.2__sys.exit_s_IMG.png" alt="os_mod_win_SYS_MODULE_a.0.0.2__sys.exit_s_IMG"> <br>
+        
+        <li>Accessing Python Interpreter Information: </li>
+            <p>
+                The sys.version attribute provides information about the Python interpreter version currently in use.
+            </p>
+            <p class="code">
+                import sys <br>
+                # Accessing Python interpreter information <br>
+                python_version = sys.version <br>
+                print("Python Version:", python_version) <br>
+            </p>
+            <img src="../../assets/Python_file_org_ops/SYS_MODULE_a.0.0.3__os_mod_win_sys.exit_IMG.png" alt="SYS_MODULE_a.0.0.3__os_mod_win_sys.exit_IMG"> <br>
+        
+        <li>Modifying Module Search Path: </li>
+            <p>
+                The sys.path attribute provides access to the list of directories Python searches for modules.
+            </p>
+            <p>
+                import sys <br>
+                path = r"C:\Users\biswa\OneDrive\Documents\GIT\GIT_main\My_Python_Notes_Collections\RAW\file_organiser\win\FINAL_SCRIPTS" <br>
+                # Modifying module search path <br>
+                # sys.path.append('/path/to/custom/module') <br>
+                sys.path.append(path) <br>
+                print("Modified sys.path:", sys.path) <br>
+            </p>
+            <img src="../../assets/Python_file_org_ops/SYS_MODULE_a.0.0.4__os_mod_win_sys.exit_IMG.png" alt="SYS_MODULE_a.0.0.4__os_mod_win_sys.exit_IMG">
+        <li>Accessing Standard Streams:</li>
+            <p>
+                The sys.stdin, sys.stdout, and sys.stderr attributes provide 
+                access to the standard input, output, and error streams respectively.
+            </p>
+            <p class="code">
+                # sys.stdout() sys.stdin() sys.stderr() <br>
+                    import sys <br>
+                    # Accessing standard streams <br>
+                    sys.stdout.write("Hello, ") <br>
+                    sys.stderr.write("Error: Something went wrong!\n") <br>
+                    user_input = sys.stdin.readline() <br>
+                    print("You entered:", user_input) <br>
+            </p>
+            <img src="../../assets/Python_file_org_ops/SYS_MODULE_a.0.0.5__os_mod_win_sys.stdout_IMG.png" alt="SYS_MODULE_a.0.0.5__os_mod_win_sys.stdout_IMG">
+
+        <li>Getting and Setting Recursion Limit:</li>
+            <p>
+                The sys.getrecursionlimit() and sys.setrecursionlimit() functions allow you to get and set the maximum 
+                recursion depth limit.
+            </p>
+            <p class="code">
+                # sys.getrecursionlimit() <br>
+                import sys <br>
+                # Getting and setting recursion limit <br>
+                initial_limit = sys.getrecursionlimit() <br>
+                print("Initial Recursion Limit:", initial_limit) <br>
+ <br>
+                new_limit = 1500 <br>
+                sys.setrecursionlimit(new_limit) <br>
+                print("New Recursion Limit:", sys.getrecursionlimit()) <br>
+            </p>
+            <img src="../../assets/Python_file_org_ops/SYS_MODULE_a.0.0.6__os_mod_win_sys.getrecursionlimit()_IMG.png" alt="SYS_MODULE_a.0.0.6__os_mod_win_sys.getrecursionlimit()_IMG.png">
+        
+        <li>Getting the Maximum Size of Integers: </li>
+            <p>The sys.maxsize attribute returns the maximum size of integers supported by the current Python interpreter.</p>
+            <p class="code">
+                import sys <br>
+ <br>
+                # Getting the maximum size of integers <br>
+                max_int_size = sys.maxsize <br>
+                print("Maximum Size of Integers:", max_int_size) <br>
+                # Getting the maximum size of floats, bool <br>
+                max_float_size = sys.float_info.max <br>
+                print("Maximum Size of Floats:", max_float_size) <br>
+                flags = sys.flags <br>
+                print("Maximum Size of Bools:", flags) <br>
+            </p>
+            <img src="../../assets/Python_file_org_ops/SYS_MODULE_a.0.0.7__os_mod_win_sys.maxsize()_IMG.png" alt="SYS_MODULE_a.0.0.7__os_mod_win_sys.maxsize()_IMG1">
+            <img src="../../assets/Python_file_org_ops/SYS_MODULE_a.0.0.7__os_mod_win_sys.maxsize()_IMG2.png" alt="SYS_MODULE_a.0.0.7__os_mod_win_sys.maxsize()_IMG2">
+
+        <li>Accessing the Current Platform:</li>
+            <p>
+                : The sys.platform attribute provides information about the platform on which Python is running, such as 
+                'linux', 'darwin', or 'win32'.
+            </p>
+            <p class="code">
+                # sys.platform <br>
+                import sys <br>
+                # Accessing the current platform <br>
+                platform = sys.platform <br>
+                print("Current Platform:", platform) <br>
+            </p>
+            <img src="" alt="">
+
+        <li>Checking Python Byte Order: </li>
+            <p></p>
+            <p class="code">
+                
+            </p>
+            <img src="" alt="">
+
+        <li>Clearing the Python Interpreter's Internal Structures: </li>    
+            <p></p>
+            <p class="code">
+                
+            </p>
+            <img src="" alt="">
+
+        <li>Accessing the System's Default Unicode Encoding: </li>
+            <p></p>
+            <p class="code">
+                
+            </p>
+            <img src="" alt="">
+
+    
+    
+    
+        </ol>
+
+</body>
+</html>
